@@ -1,0 +1,59 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      S3_BUCKET_NAME: ${{ secrets.S3_BUCKET_NAME }}
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ secrets.AWS_REGION }}
+
+    - name: Pull Image & Get Build Artifact
+      run: |
+        docker login docker.pkg.github.com --username $USERNAME -p $GITHUB_TOKEN
+        docker pull docker.pkg.github.com/teamludens/itemtrade-api-doc/slatedoc:1.0
+        docker tag docker.pkg.github.com/teamludens/itemtrade-api-doc/slatedoc:1.0 slate-doc:1.0
+      env:
+        USERNAME: ${{ github.actor }}
+        GITHUB_TOKEN: ${{ secrets.PACKAGES_ACCESS_TOKEN }}
+
+    - name: Get Build Artifact
+      run: |
+        docker run --rm --name slate -v $(pwd)/build:/srv/slate/build -v $(pwd)/source:/srv/slate/source slate-doc:1.0
+        # we have to change the name of index.html to _callback d/t cloudfront-auth with google OAuth
+
+    - name: Push to AWS S3
+      run: |
+        docker-compose run deploy s3 cp ./build s3://${{ secrets.S3_BUCKET_NAME }}/ --acl public-read --recursive
+
+        # change index.html name to _callback and upload with "text/html" as content-type
+        # otherwise, it is uploaded as octet/stream
+        sudo mv ./build/index.html ./build/_callback
+        docker-compose run deploy s3 cp ./build/_callback s3://${{ secrets.S3_BUCKET_NAME }}/_callback --no-guess-mime-type \
+          --content-type="text/html" --metadata-directive="REPLACE" --acl public-read
+
+        # immediately invalidate cloudfront cache
+        docker-compose run deploy cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_ID }}  --paths "/*"
+
+    - name: Slack Notification
+      uses: rtCamp/action-slack-notify@v2
+      env:
+        MSG_MINIMAL: true
+        SLACK_CHANNEL: api-update
+        SLACK_FOOTER: item-doc.glamtutor.com
+        SLACK_ICON_EMOJI: ':video_game:'
+        SLACK_TITLE: 'API 문서 배포'
+        SLACK_USERNAME: 'Itemtrade API Doc'
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
