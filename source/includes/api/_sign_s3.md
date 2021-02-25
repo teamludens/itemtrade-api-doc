@@ -11,7 +11,7 @@ S3에 업로드가 성공하면 반환되는 key값은 `"media/images/teacher_po
 > https Request Example
 
 ```http
-POST https://baseUrl/api/sign_s3/
+POST https://baseUrl/sign_s3/
 ```
 
 > Request Body
@@ -19,7 +19,7 @@ POST https://baseUrl/api/sign_s3/
 ```json
 {
  "mime": "image/jpeg",
- "path": "images/users/avatars/avatar_",
+ "path": "images/users/profiles/profile_",
  "number": 1
 }
 ```
@@ -40,18 +40,11 @@ POST https://baseUrl/api/sign_s3/
 |  +-- images
 |    +-- users: 유저 관련
 |      +-- 세부사진 분류(복수형)/파일종류(단수형)_랜덤uuid.확장자 구조
-|      +-- avatars: 아바타
-|        +-- avatar_FBjPNzQnQbeA4SRjSvitF9.jpeg
-|        +-- avatar_DIJ2ndiw482Vsieutadj2D.jpeg
-|        ...
 |      +-- profiles: 유저 프로필 사진 등
 |        +-- profile_G2TdKFK6Awycfi6m5reJjd.jpeg
 |        ...
-|      +-- verifications: 각종 인증 사진(면허증, 명함) 등
-|        +-- verification_SjMRahHpEJ8jcxavNbdKutD.jpeg
-|        ...
-|    +-- gatherings: 모임 관련
-|      +-- gathering_P6kjacMDyoBQZXHVy3d6Q8.jpeg
+|    +-- posts: Post(=아이템) 관련
+|      +-- post_P6kjacMDyoBQZXHVy3d6Q8.jpeg
 |      ...
 |-- static
 
@@ -61,7 +54,7 @@ S3 디렉토리 구조는 위와 같은 형식이다. Presigned post url를 생�
 
 1. media는 제외한다.
 
-2. `"images/users/avatars/avatar_"`와 같이 `images/{모델명}/{세부사진 분류(복수형)}/{세부사진 분류_}` 형태를 만들어 준다.
+2. `"images/users/profiles/profile_"`와 같이 `images/{모델명}/{세부사진 분류(복수형)}/{세부사진 분류_}` 형태를 만들어 준다.
 
 3. 서버에서 요청하면 path 양 옆에 `media/`와  `random_uuid.jpeg`을 달아주기 때문에, client에서는 중간 경로만 만들어주면 된다.
 
@@ -69,13 +62,11 @@ S3 디렉토리 구조는 위와 같은 형식이다. Presigned post url를 생�
 
    유저
 
-   * 유저 아바타: `images/users/avatars/avatar_`
    * 유저 프로필: `images/users/profiles/profile_`
-   * 인증사진 사진: `images/users/verifications/verification_`
 
-   모임
+   포스팅(=아이템)
 
-   * 모임 사진: `images/gatherings/gathering_`
+   * 모임 사진: `images/posts/post_`
 
 > Response: 201 Created
 
@@ -87,7 +78,7 @@ S3 디렉토리 구조는 위와 같은 형식이다. Presigned post url를 생�
 			"acl":"private",
 			"Content-Type":"image/jpeg",
 			"x-amz-meta-userid":"NgUwhvm8xh3pVwzbJUy5qu",
-			"key":"media/images/users/avatars/avatar_3L5fgCyhLwTX5LWfT7dhya.jpeg",
+			"key":"media/images/users/posts/post_3L5fgCyhLwTX5LWfT7dhya.jpeg",
 			"x-amz-algorithm":"AWS4-HMAC-SHA256",
 			"x-amz-credential":"AKIAJACNW25AK2YBNKXQ/20210117/region/s3/aws4_request",
 			"x-amz-date":"20210117T082812Z",
@@ -115,7 +106,7 @@ POST https://bucket.s3.amazonaws.com/
 "acl": "private"
 "Content-Type": "image/jpeg"
 "x-amz-meta-userid": "NgUwhvm8xh3pVwzbJUy5qu",
-"key": "media/images/users/avatars/avatar_34jhrgTKDNEwyyUwX8vs9J.jpeg",
+"key": "media/images/users/posts/post_34jhrgTKDNEwyyUwX8vs9J.jpeg",
 "x-amz-algorithm": "AWS4-HMAC-SHA256",
 "x-amz-credential": "AKIAR5WQRDCTEM6S5CIU/20200712/region/s3/aws4_request",
 "x-amz-date": "20200712T162900Z",
@@ -139,7 +130,7 @@ POST https://bucket.s3.amazonaws.com/
 > https Request Example
 
 ```http
-DELETE https://baseUrl/api/sign_s3/
+DELETE https://baseUrl/sign_s3/
 ```
 
 > Request Body
@@ -148,7 +139,7 @@ DELETE https://baseUrl/api/sign_s3/
 # sign_s3에서 받은 응답값 "fields"에 포함된 key 값을 보낸다.
 
 {
-	"key": "media/images/users/avatars/avatar_34jhrgTKDNEwyyUwX8vs9J.jpeg"
+	"key": "media/images/users/posts/post_34jhrgTKDNEwyyUwX8vs9J.jpeg"
 }
 ```
 

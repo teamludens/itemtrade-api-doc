@@ -5,36 +5,45 @@
 > https Request Example
 
 ```http
-POST https://baseUrl/api/registration/
+POST https://baseUrl/registration/
 ```
 
 > Request Body
 
 ```json
 {
- "avatar": "images/users/avatars/avatar_dIdjeka9Mk28fsidje8X29d.jpeg",
- "birth": "1984-10-23",
- "carrier": "SK telecom",
- "foreigner": false,
- "gender": "male",
- "interests": [
-  "fQW6UJWc5eNzvTNxSHK000",
-  "fQW6UJWc5eNzvTNxSHK001"
- ],
- "mobile": "01090991005",
- "name": "손흥민",
- "profession": "6jPaGgDuJeeVffM7SXTBGx",
- "profile": "images/users/profiles/profile_rVvDZa9Mk28f58ch2AXuNt.jpeg",
- "unique_in_site": "239dfj239dfjasdf",
- "unique_key": "asdfi23jadsf92",
- "username": "도도",
- "verification_files": [
-  {
-   "display_order": 0,
-   "original": "images/users/verifications/verification_aKJXhaUGtobGKWMJSRHiti.jpeg"
-  },
-  ...
- ]
+	"birth":"1984-10-23",
+	"carrier":"SK telecom",
+	"foreigner":false,
+	"gender":"male",
+	"imp_resp":{
+		"code":0,
+		"message":null,
+		"response":{
+			"birth":887829380,
+			"birthday":"1990-07-20",
+			"carrier":"SKT",
+			"certified":true,
+			"certified_at":1610889283,
+			"foreigner":false,
+			"gender":"female",
+			"imp_uid":"imp_289888049273",
+			"merchant_uid":"ORD202039131-0002931",
+			"name":"손흥민",
+			"origin":"https://api.alyke.app/webviews/imp_auth/?device=android",
+			"pg_provider":"danal",
+			"pg_tid":"202101172046340829382718",
+			"phone":"01012345678",
+			"unique_in_site":"MC0GCCqG....AfRO48=",
+			"unique_key":"iEfjM/HqDwP....5nVRikslpCUE0uQwHVtrdw=="
+		}
+	},
+	"mobile":"+821012345678",
+	"name":"손흥민",
+	"profile":"images/users/profiles/profile_rVvDZa9Mk28f58ch2AXuNt.jpeg",
+	"unique_in_site":"239dfj239dfjasdf",
+	"unique_key":"asdfi23jadsf92",
+	"username":"도도도새"
 }
 ```
 
@@ -42,45 +51,48 @@ POST https://baseUrl/api/registration/
 
 ```json
 {
- "access": "eyJ0eXAiOiJKV1QiL...s3pAukovReIwA",
- "refresh": "eyJ0eXAiOiJKV...bX609JyklIKk",
- "user": {
-  "age": 36,
-  "birth": "1984-10-23",
-  "gender": "male",
-  "interests": [
-   {
-    "emoji": "⛳",
-    "name": "골프",
-    "uuid": "fQW6UJWc5eNzvTNxSHK000",
-    "image": "http://localhost:8000/media/images/interests/interest_P6kjacMDyoBQZXHVy3d6Q8.jpeg"
-   },
-   ...
+	"access":"eyJ0eXAiOiJKV1QiLCJh...BwlpX8",
+	"refresh":"eyJ0eXAiOiJKV1Q...X9hOmZ4",
+	"user":{
+		"profile":"http://localhost:8000/media/images/users/profiles/profile_rVvDZa9Mk28f58ch2AXuNt.jpeg",
+		"status":"active",
+		"username":"도도도새",
+		"uuid":"PdLT2G8ae6sdWWuTgqigiS"
+	}
+}
+```
+
+> Response: 400 Bad Request: mobile, unique_in_site, unique_key, username 등이 겹칠 때
+
+```json
+{
+ "code": "invalid",
+ "detail": {
+  "mobile": [
+   "이 필드는 반드시 고유(unique)해야 합니다."
   ],
-  "profession": {
-   "emoji": "👨‍⚕️",
-   "name": "의사",
-   "uuid": "6jPaGgDuJeeVffM7SXTBGx"
-  },
-  "profile": "/media/images/users/profiles/profile_rVvDZa9Mk28f58ch2AXuNt.jpeg",
-  "status": "pending",
-  "username": "도도도새",
-  "uuid": "CLS9fByfifGwPy5YQWTQon"
+  "unique_in_site": [
+   "유저의 unique in site은/는 이미 존재합니다."
+  ],
+  "unique_key": [
+   "유저의 unique key은/는 이미 존재합니다."
+  ],
+  "username": [
+   "해당 사용자 이름은 이미 존재합니다."
+  ]
  }
 }
 ```
 
-> Response: 400 Bad Request
+### Request Parameters
 
-```json
-{
- "username":[
-  "해당 사용자 이름은 이미 존재합니다."
- ]
-}
-```
+| Parameters | Type | Required | description                                               |
+| ---------- | ---- | -------- | --------------------------------------------------------- |
+| imp_resp   | json | false    | 아임포트에서 오는 응답값을 그대로 보내서 db에 저장합니다. |
 
 회원가입에 사용합니다. 
+
+Unique한 필드들: `mobile`, `unique_key_in_site`, `unique_key`, `username` 
 
 ### 주의: 이미지/파일 업로드
 
@@ -91,7 +103,7 @@ POST https://baseUrl/api/registration/
 > https Request Example
 
 ```http
-POST https://baseUrl/api/auth/mobile/
+POST https://baseUrl/auth/mobile/
 ```
 
 > Request Body
@@ -119,31 +131,9 @@ POST https://baseUrl/api/auth/mobile/
 }
 ```
 
-> Response: 406 NotAcceptable (승인 대기 회원 요청)
-
-```json
-{
-  "detail": "승인 대기중인 회원입니다.",
-  "code": "1006"
-}
-```
-
-> Response: 403 Forbiden (승인 거절된 회원 요청)
-
-```json
-{
-  "detail": "승인 거절된 회원입니다.",
-  "code": "1005"
-}
-```
-
 로그인을 위한 첫 번째 과정으로 핸드폰 번호를 보내면, 6자리 인증 토큰이 twilio API를 통해 사용자의 휴대폰 SMS로 보내지게 됩니다. 
 
 ### 승인 되지 않은 회원 Error Code
-
-- 1005 : 승인 거절된 회원
-
-- 1006 : 승인 대기중인 회원
 
 
 ## [POST] Login Step 2 (Use token)
@@ -151,7 +141,7 @@ POST https://baseUrl/api/auth/mobile/
 > https Request Example
 
 ```http
-POST https://baseUrl/api/token/
+POST https://baseUrl/token/
 ```
 
 > Request Body
@@ -170,23 +160,6 @@ POST https://baseUrl/api/token/
  "access": "eyJ0eXAiO....Ej1HgcQY",
  "refresh": "eyJ0eXAiO....dx392JXI",
  "user": {
-  "age": 36,
-  "birth": "1984-10-23",
-  "gender": "male",
-  "interests": [
-   {
-    "emoji": "⛳",
-    "name": "골프",
-    "uuid": "fQW6UJWc5eNzvTNxSHK000",
-    "image": "http://localhost:8000/media/images/interests/interest_P6kjacMDyoBQZXHVy3d6Q8.jpeg"
-   },
-   ...
-  ],
-  "profession": {
-   "emoji": "👨‍⚕️",
-   "name": "의사",
-   "uuid": "6jPaGgDuJeeVffM7SXTBGx"
-  },
   "profile": "/media/images/users/profiles/profile_rVvDZa9Mk28f58ch2AXuNt.jpeg",
   "status": "pending",
   "username": "도도",
@@ -229,7 +202,7 @@ access 토큰이 만료된 경우 재발급 받습니다.
 > https Request Example
 
 ```http
-POST https://baseUrl/api/logout/
+POST https://baseUrl/logout/
 ```
 
 > Request Body: 헤더에 refresh 값을 담아서 요청해야 함.
@@ -245,6 +218,14 @@ POST https://baseUrl/api/logout/
 ```json
 {
  "detail": "Successfully logged out."
+}
+```
+
+> Response: 401 Unauthorized - 이미 로그아웃한 토큰으로 재시도시
+
+```json
+{
+ "detail": "Token is blacklisted"
 }
 ```
 

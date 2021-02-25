@@ -52,33 +52,11 @@ GET https://baseUrl/users/me/
 
 ```json
 {
-  "uuid": "NgUwhvm8xh3pVwzbJUy5qu",
-  "username": "도도한도도새",
-  "profile": "http://localhost:8000/media/images/users/profiles/profile_rVvDZa9Mk28f58ch2AXuNt.jpeg",
-  "gender": "male",
-  "birth": "1980-01-10",
-  "profession": "의사",
-  "interests": [
-    {
-      "uuid": "fQW6UJWc5eNzvTNxSHK000",
-      "name": "골프",
-      "emoji": "⛳",
-      "image": "http://localhost:8000/media/images/interests/interest_P6kjacMDyoBQZXHVy3d6Q8.jpeg"
-    },
-		...
-  ],
-  "status": "accepted",
-  "age": 40
+ "profile": "http://localhost:8000/media/images/users/profiles/profile_rVvDZa9Mk28f58ch2AXuNt.jpeg",
+ "username": "도도한도도새",
+ "uuid": "L66aBMWqaVoSy2PNMmKCfV"
 }
 ```
-
-### User 승인 상태
-
-- pending : 승인 대기
-- accepted : 승인 완료
-- declined : 승인 거절
-
-
 
 ## [DELETE] User Delete
 
@@ -114,12 +92,9 @@ PATCH https://baseUrl/users/:uuid/
 
 ```json
 {
- "interests": [
-  "fQW6UJWc5eNzvTNxSHK000",
-   ...
- ],
- "profile": "images/users/profiles/profile_dIdjeka9Mk28fsidje8X29d.jpeg",
- "username": "안도도한도도새"
+ "profile": "images/users/profiles/profile_rVvDZa9Mk28f58ch2AXuNt.jpeg",
+ "username": "안도도한도도새",
+ "uuid": "L66aBMWqaVoSy2PNMmKCfV"
 }
 ```
 
@@ -137,13 +112,9 @@ PATCH https://baseUrl/users/:uuid/
 
 ```json
 {
- "birth": "1980-01-10",
- "gender": "male",
- "interests": [
-  "fQW6UJWc5eNzvTNxSHK000"
- ],
+ "profile": "http://localhost:8000/media/images/users/profiles/profile_rVvDZa9Mk28f58ch2AXuNt.jpeg",
  "username": "안도도한도도새",
- "uuid": "NgUwhvm8xh3pVwzbJUy5qu"
+ "uuid": "L66aBMWqaVoSy2PNMmKCfV"
 }
 ```
 
@@ -164,9 +135,7 @@ PATCH https://baseUrl/users/:uuid/
 | --------- | ------ | -------- | ------------------------------------------------------------ |
 | username  | string | false    | Can only contain letters, numbers, and @/./+/-/_ characters.<br />수정하려는 유저의 `닉네임`으로, 공백이 포함될 수 없습니다.<br />중복 여부 체크는 [user-check-duplicate api](#get-user-check-duplicate) 통해서도 가능합니다. |
 | profile   | string | false    | 수정하려는 유저의 `프로필 사진`의 파일명입니다. 파일 확장자를 반드시 포함합니다. |
-| interests | list   | false    | 관심사 리스트에서 받아온 uuid의 리스트                       |
 
 <aside class="warning">
    presigned_url을 이용하여 AWS S3와 통신하는 방법은 <a href="#sign-s3">AWS S3</a>를 참고해주세요.
 </aside>
-

@@ -6,18 +6,10 @@ toc_footers:
   - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
 
 includes:
-  - iamport_webview
-  - api/iamport
   - api/accounts
-  - api/comments
-  - api/gatherings
-  - api/interests
-  - api/participations
-  - api/places
-  - api/policy
-  - api/professions
   - api/sign_s3
   - api/users
+  - api/errors
 
 search: true
 
