@@ -86,17 +86,17 @@ POST https://baseUrl/registration/
 
 ### Request Parameters
 
-| Parameters | Type | Required | description                                               |
-| ---------- | ---- | -------- | --------------------------------------------------------- |
-| imp_resp   | json | false    | 아임포트에서 오는 응답값을 그대로 보내서 db에 저장합니다. |
+| Parameters | Type | Required | description                                                  |
+| ---------- | ---- | -------- | ------------------------------------------------------------ |
+| imp_resp   | json | false    | 아임포트에서 오는 응답값을 그대로 보내서 db에 저장합니다. json형태이기만 하다면, key-value값이 약간 차이가 나도 저장됩니다. (postgresql의 JSONField를 사용해 저장하기 때문) |
 
-회원가입에 사용합니다. 
+회원가입에 사용합니다. 몇몇 필드는 imp_resp내의 값에도 포함되어 있지만, unique체크 등을 위해 db에 중복되게 설계되었습니다.
 
 Unique한 필드들: `mobile`, `unique_key_in_site`, `unique_key`, `username` 
 
 ### 주의: 이미지/파일 업로드
 
-* avatar, profile, verification_files 모두 [presigned_url을 사용하며 먼저 이미지를 S3](#sign-s3)에 업로드 후, 해당 파일의 str 경로를 `POST`합니다.
+* profile은 [presigned_url을 사용하며 먼저 이미지를 S3](#sign-s3)에 업로드 후, 해당 파일의 str 경로를 `POST`합니다.
 
 ## [POST] Login Step 1 (Get token)
 
