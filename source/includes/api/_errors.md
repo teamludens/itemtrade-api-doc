@@ -7,8 +7,8 @@ Respons의 에러 코드
 Error Code | HTTP Status Code | Meaning 
 ---------- | -------|---------- 
 10001 | 403 Forbidden | DemoAccountNotAllowedNow 
-10002 | 400 Bad Request    | ItemCannotHaveCoinAmountSet 
- 10003      | 400 Bad Request    | GameCoinMustHaveCoinAmountSet 
- 10004      | 403 Forbidden      | CanOnlyBumpOnceIn36Hours 
+10002 | 409 Conflict | ItemCannotHaveCoinAmountSet 
+ 10003      | 406 Not Acceptable | GameCoinMustHaveCoinAmountSet 
+ 10004      | 412 Precondition Failed | CanOnlyBumpOnceIn36Hours 
  10005      | 406 Not Acceptable | CanOnlyBumpSamePost15Times 
 
