@@ -34,6 +34,10 @@ search: true
 
 ## Release Notes
 
+### 2021.2.26
+
+* Post create, list API 추가
+
 ### 2021.2.25
 
 - Init: accounts, sign s3, users 및 errors 관련 기본 API 문서 셋업
