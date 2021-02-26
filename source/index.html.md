@@ -7,6 +7,7 @@ toc_footers:
 
 includes:
   - api/accounts
+  - api/posts
   - api/sign_s3
   - api/users
   - api/errors

@@ -1,7 +1,7 @@
 # Errors
 
 <aside class="notice">
-Respons의 에러 코드
+Response의 에러 코드
 </aside>
 
 Error Code | HTTP Status Code | Meaning 
