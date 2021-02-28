@@ -34,6 +34,10 @@ search: true
 
 ## Release Notes
 
+### 2021.2.28
+
+* Post update, bump, detail API 추가
+
 ### 2021.2.26
 
 * Post create, list API 추가

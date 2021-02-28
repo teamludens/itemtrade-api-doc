@@ -175,7 +175,7 @@ POST https://baseUrl/token/
 > https Request Example
 
 ```http
-POST https://baseUrl/api/token/refresh/
+POST https://baseUrl/token/refresh/
 ```
 
 > Request Body
