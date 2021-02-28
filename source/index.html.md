@@ -8,6 +8,7 @@ toc_footers:
 includes:
   - api/accounts
   - api/posts
+  - api/servers
   - api/sign_s3
   - api/users
   - api/errors
@@ -37,6 +38,7 @@ search: true
 ### 2021.2.28
 
 * Post update, bump, detail API 추가
+* Server list API 추가
 
 ### 2021.2.26
 
