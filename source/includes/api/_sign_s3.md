@@ -72,20 +72,20 @@ S3 디렉토리 구조는 위와 같은 형식이다. Presigned post url를 생�
 
 ```json
 [
-	{
-		"url":"https://bucket.s3.amazonaws.com/",
-		"fields":{
-			"acl":"private",
-			"Content-Type":"image/jpeg",
-			"x-amz-meta-userid":"NgUwhvm8xh3pVwzbJUy5qu",
-			"key":"media/images/users/posts/post_3L5fgCyhLwTX5LWfT7dhya.jpeg",
-			"x-amz-algorithm":"AWS4-HMAC-SHA256",
-			"x-amz-credential":"AKIAJACNW25AK2YBNKXQ/20210117/region/s3/aws4_request",
-			"x-amz-date":"20210117T082812Z",
-			"policy":"eyJle......ICIyMDIxMDExN1QwODI4MTJaIn1dfQ==",
-			"x-amz-signature":"4f157d4cd25e0aff1e70c32f1fca3a7bb62583fbbdc29fe0298d7ad3265497e3"
-		}
-	}
+  {
+    "url":"https://bucket.s3.amazonaws.com/",
+    "fields":{
+      "acl":"private",
+      "Content-Type":"image/jpeg",
+      "x-amz-meta-userid":"NgUwhvm8xh3pVwzbJUy5qu",
+      "key":"media/images/users/posts/post_3L5fgCyhLwTX5LWfT7dhya.jpeg",
+      "x-amz-algorithm":"AWS4-HMAC-SHA256",
+      "x-amz-credential":"AKIAJACNW25AK2YBNKXQ/20210117/region/s3/aws4_request",
+      "x-amz-date":"20210117T082812Z",
+      "policy":"eyJle......ICIyMDIxMDExN1QwODI4MTJaIn1dfQ==",
+      "x-amz-signature":"4f157d4cd25e0aff1e70c32f1fca3a7bb62583fbbdc29fe0298d7ad3265497e3"
+    }
+  }
 ]
 ```
 
@@ -139,7 +139,7 @@ DELETE https://baseUrl/sign_s3/
 # sign_s3에서 받은 응답값 "fields"에 포함된 key 값을 보낸다.
 
 {
-	"key": "media/images/users/posts/post_34jhrgTKDNEwyyUwX8vs9J.jpeg"
+  "key": "media/images/users/posts/post_34jhrgTKDNEwyyUwX8vs9J.jpeg"
 }
 ```
 

@@ -8,6 +8,7 @@ toc_footers:
 includes:
   - api/accounts
   - api/posts
+  - api/reviews
   - api/servers
   - api/sign_s3
   - api/users
@@ -34,6 +35,10 @@ search: true
 토큰은 [Login API](#post-login-step-2-use-token)을 통해 발급받을 수 있고, expire되는 경우 refresh 토큰을 사용해 [Token Refresh API](#post-refresh-token)에서 Access Token을 재발급 받습니다.
 
 ## Release Notes
+
+### 2021.3.1
+
+* reviews CRUD API 추가
 
 ### 2021.2.28
 

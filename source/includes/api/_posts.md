@@ -5,7 +5,7 @@
 > https Request Example
 
 ```http
-GET https://baseUrl/posts/
+POST https://baseUrl/posts/
 ```
 
 > Request Body: 아이템인 경우
@@ -30,18 +30,18 @@ GET https://baseUrl/posts/
 
 ```json
 {
-	"coin_amount":15000,
-	"category":"coin",
-	"description":"빠른 판매 원합니다",
-	"images":[
-		{
-			"url":"http://localhost:8000/media/images/posts/post_rVvDZa9Mk28f58ch2AXuN0.jpeg",
-			"display_order":0
-		}
-	],
-	"price":10000,
-	"server":"RaCmzUhXEfc3Sv6HnpuQQc",
-	"title":"15000메소 팝니다.",
+  "coin_amount":15000,
+  "category":"coin",
+  "description":"빠른 판매 원합니다",
+  "images":[
+    {
+      "url":"http://localhost:8000/media/images/posts/post_rVvDZa9Mk28f58ch2AXuN0.jpeg",
+      "display_order":0
+    }
+  ],
+  "price":10000,
+  "server":"RaCmzUhXEfc3Sv6HnpuQQc",
+  "title":"15000메소 팝니다.",
 }
 ```
 
@@ -49,20 +49,20 @@ GET https://baseUrl/posts/
 
 ```json
 {
-	"coin_amount":null,
-	"category":"item",
-	"description":"빠른 판매 원합니다",
-	"images":[
-		{
-			"url":"http://localhost:8000/media/images/posts/post_rVvDZa9Mk28f58ch2AXuN0.jpeg",
-			"display_order":0
-		}
-	],
-	"price":10000,
-	"server":"RaCmzUhXEfc3Sv6HnpuQQc",
-	"status":"available",
-	"title":"트럭스터 어새신 팬츠 공43%",
-	"uuid":"dmipiWmHULndGLD32T7GTf"
+  "coin_amount":null,
+  "category":"item",
+  "description":"빠른 판매 원합니다",
+  "images":[
+    {
+      "url":"http://localhost:8000/media/images/posts/post_rVvDZa9Mk28f58ch2AXuN0.jpeg",
+      "display_order":0
+    }
+  ],
+  "price":10000,
+  "server":"RaCmzUhXEfc3Sv6HnpuQQc",
+  "status":"available",
+  "title":"트럭스터 어새신 팬츠 공43%",
+  "uuid":"dmipiWmHULndGLD32T7GTf"
 }
 ```
 
@@ -70,20 +70,20 @@ GET https://baseUrl/posts/
 
 ```json
 {
-	"coin_amount":15000,
-	"category":"coin",
-	"description":"빠른 판매 원합니다",
-	"images":[
-		{
-			"url":"http://localhost:8000/media/images/posts/post_rVvDZa9Mk28f58ch2AXuN0.jpeg",
-			"display_order":0
-		}
-	],
-	"price":10000,
-	"server":"RaCmzUhXEfc3Sv6HnpuQQc",
-	"status":"available",
-	"title":"15000메소 팝니다.",
-	"uuid":"ny5vJXe3DZNqQvQeQq7YMU"
+  "coin_amount":15000,
+  "category":"coin",
+  "description":"빠른 판매 원합니다",
+  "images":[
+    {
+      "url":"http://localhost:8000/media/images/posts/post_rVvDZa9Mk28f58ch2AXuN0.jpeg",
+      "display_order":0
+    }
+  ],
+  "price":10000,
+  "server":"RaCmzUhXEfc3Sv6HnpuQQc",
+  "status":"available",
+  "title":"15000메소 팝니다.",
+  "uuid":"ny5vJXe3DZNqQvQeQq7YMU"
 }
 ```
 
@@ -136,38 +136,38 @@ GET https://baseUrl/posts/?seller=NgUwhvm8xh3pVwzbJUy5qu&status=sold
 
 ```json
 {
-	"next":null,
-	"previous":null,
-	"results":[
-		{
-			"coin_amount":10,
+  "next":null,
+  "previous":null,
+  "results":[
+    {
+      "coin_amount":10,
       "category": "coin",
-			"description":"매너 거래욤",
-			"images":[],
-			"price":34000,
-			"title":"10억 메소 팝니다",
-			"uuid":"gcWDK3d3EAQB7ecrZ33ejB",
-			"coin_rate":3400,
-			"humanized_created":"끌올 2분 전",
-		},
-		{
-			"coin_amount":null,
+      "description":"매너 거래욤",
+      "images":[],
+      "price":34000,
+      "title":"10억 메소 팝니다",
+      "uuid":"gcWDK3d3EAQB7ecrZ33ejB",
+      "coin_rate":3400,
+      "humanized_created":"끌올 2분 전",
+    },
+    {
+      "coin_amount":null,
       "category": "item",
-			"description":"빠른 판매 원합니다",
-			"images":[
-				{
-					"url":"http://localhost:8000/media/images/posts/post_rVvDZa9Mk28f58ch2AXuN0.jpeg",
-					"display_order":0
-				}
-			],
-			"price":10000,
-			"title":"트럭스터 어새신 팬츠 공43%",
-			"uuid":"dmipiWmHULndGLD32T7GTf",
-			"coin_rate":null,
-			"humanized_created":"4시간 전",
-		},
+      "description":"빠른 판매 원합니다",
+      "images":[
+        {
+          "url":"http://localhost:8000/media/images/posts/post_rVvDZa9Mk28f58ch2AXuN0.jpeg",
+          "display_order":0
+        }
+      ],
+      "price":10000,
+      "title":"트럭스터 어새신 팬츠 공43%",
+      "uuid":"dmipiWmHULndGLD32T7GTf",
+      "coin_rate":null,
+      "humanized_created":"4시간 전",
+    },
     ...
-	]
+  ]
 }
 ```
 
@@ -200,18 +200,18 @@ PATCH https://baseUrl/posts/:uuid/
 
 ```json
 {
-	"category":"item",
-	"description":"(수정)빠른 판매 원합니다",
-	"images":[
-		{
-			"display_order":0,
-			"original":"images/posts/post_rVvDZa9Mk28f58ch2AXuN1.jpeg"
-		},
+  "category":"item",
+  "description":"(수정)빠른 판매 원합니다",
+  "images":[
+    {
+      "display_order":0,
+      "original":"images/posts/post_rVvDZa9Mk28f58ch2AXuN1.jpeg"
+    },
     ...
-	],
-	"price":60000,
-	"status":"reserved",
-	"title":"(수정)트럭스터 어새신 팬츠 공43%"
+  ],
+  "price":60000,
+  "status":"reserved",
+  "title":"(수정)트럭스터 어새신 팬츠 공43%"
 }
 ```
 
@@ -219,19 +219,19 @@ PATCH https://baseUrl/posts/:uuid/
 
 ```json
 {
-	"category":"coin",
-	"coin_amount":20,
-	"description":"(수정)빠른 판매 원합니다",
-	"images":[
-		{
-			"display_order":0,
-			"original":"images/posts/post_rVvDZa9Mk28f58ch2AXuN1.jpeg"
-		},
+  "category":"coin",
+  "coin_amount":20,
+  "description":"(수정)빠른 판매 원합니다",
+  "images":[
+    {
+      "display_order":0,
+      "original":"images/posts/post_rVvDZa9Mk28f58ch2AXuN1.jpeg"
+    },
     ...
-	],
-	"price":60000,
-	"status":"hidden",
-	"title":"(수정) 20억 메소 팝니다"
+  ],
+  "price":60000,
+  "status":"hidden",
+  "title":"(수정) 20억 메소 팝니다"
 }
 ```
 
@@ -239,21 +239,21 @@ PATCH https://baseUrl/posts/:uuid/
 
 ```json
 {
-	"coin_amount":null,
-	"category":"item",
-	"description":"(수정)빠른 판매 원합니다",
-	"images":[
-		{
-			"url":"http://localhost:8000/media/images/posts/post_rVvDZa9Mk28f58ch2AXuN1.jpeg",
-			"display_order":0
-		},
+  "coin_amount":null,
+  "category":"item",
+  "description":"(수정)빠른 판매 원합니다",
+  "images":[
+    {
+      "url":"http://localhost:8000/media/images/posts/post_rVvDZa9Mk28f58ch2AXuN1.jpeg",
+      "display_order":0
+    },
     ...
-	],
-	"price":60000,
-	"server":"RaCmzUhXEfc3Sv6HnpuQQc",
-	"status":"reserved",
-	"title":"(수정)트럭스터 어새신 팬츠 공43%",
-	"uuid":"P7pZYBbrPMDJMkvBTncit7"
+  ],
+  "price":60000,
+  "server":"RaCmzUhXEfc3Sv6HnpuQQc",
+  "status":"reserved",
+  "title":"(수정)트럭스터 어새신 팬츠 공43%",
+  "uuid":"P7pZYBbrPMDJMkvBTncit7"
 }
 ```
 
@@ -261,21 +261,21 @@ PATCH https://baseUrl/posts/:uuid/
 
 ```json
 {
-	"coin_amount":20,
-	"category":"coin",
-	"description":"(수정)빠른 판매 원합니다",
-	"images":[
-		{
-			"url":"http://localhost:8000/media/images/posts/post_rVvDZa9Mk28f58ch2AXuN1.jpeg",
-			"display_order":0
-		},
+  "coin_amount":20,
+  "category":"coin",
+  "description":"(수정)빠른 판매 원합니다",
+  "images":[
+    {
+      "url":"http://localhost:8000/media/images/posts/post_rVvDZa9Mk28f58ch2AXuN1.jpeg",
+      "display_order":0
+    },
     ...
-	],
-	"price":60000,
-	"server":"RaCmzUhXEfc3Sv6HnpuQQc",
-	"status":"hidden",
-	"title":"(수정) 20억 메소 팝니다",
-	"uuid":"gcWDK3d3EAQB7ecrZ33ejB"
+  ],
+  "price":60000,
+  "server":"RaCmzUhXEfc3Sv6HnpuQQc",
+  "status":"hidden",
+  "title":"(수정) 20억 메소 팝니다",
+  "uuid":"gcWDK3d3EAQB7ecrZ33ejB"
 }
 ```
 
@@ -305,27 +305,27 @@ GET https://baseUrl/posts/:uuid/
 
 ```json
 {
-	"coin_amount":null,
-	"category":"item",
-	"description":"빠른 판매 원합니다",
-	"images":[
-		{
-			"url":"http://localhost:8000/media/images/posts/post_rVvDZa9Mk28f58ch2AXuN0.jpeg",
-			"display_order":0
-		},
+  "coin_amount":null,
+  "category":"item",
+  "description":"빠른 판매 원합니다",
+  "images":[
+    {
+      "url":"http://localhost:8000/media/images/posts/post_rVvDZa9Mk28f58ch2AXuN0.jpeg",
+      "display_order":0
+    },
     ...
-	],
-	"price":10000,
-	"seller":{
-		"uuid":"aVYk2fG5yWETFJwCiGbthF",
-		"username":"asdf",
-		"profile":null,
-		"review_num":0
-	},
-	"title":"트럭스터 어새신 팬츠 공43%",
-	"uuid":"P7pZYBbrPMDJMkvBTncit7",
-	"coin_rate":null,
-	"humanized_created":"끌올 어제"
+  ],
+  "price":10000,
+  "seller":{
+    "uuid":"aVYk2fG5yWETFJwCiGbthF",
+    "username":"asdf",
+    "profile":null,
+    "review_num":0
+  },
+  "title":"트럭스터 어새신 팬츠 공43%",
+  "uuid":"P7pZYBbrPMDJMkvBTncit7",
+  "coin_rate":null,
+  "humanized_created":"끌올 어제"
 }
 ```
 
@@ -333,27 +333,27 @@ GET https://baseUrl/posts/:uuid/
 
 ```json
 {
-	"coin_amount":10,
-	"category":"coin",
-	"description":"빠른 판매 원합니다",
-	"images":[
-		{
-			"url":"http://localhost:8000/media/images/posts/post_rVvDZa9Mk28f58ch2AXuN0.jpeg",
-			"display_order":0
-		},
+  "coin_amount":10,
+  "category":"coin",
+  "description":"빠른 판매 원합니다",
+  "images":[
+    {
+      "url":"http://localhost:8000/media/images/posts/post_rVvDZa9Mk28f58ch2AXuN0.jpeg",
+      "display_order":0
+    },
     ...
-	],
-	"price":34000,
-	"seller":{
-		"uuid":"aVYk2fG5yWETFJwCiGbthF",
-		"username":"asdf",
-		"profile":null,
-		"review_num":0
-	},
-	"title":"트럭스터 어새신 팬츠 공43%",
-	"uuid":"gcWDK3d3EAQB7ecrZ33ejB",
-	"coin_rate":3400,
-	"humanized_created":"끌올 어제"
+  ],
+  "price":34000,
+  "seller":{
+    "uuid":"aVYk2fG5yWETFJwCiGbthF",
+    "username":"asdf",
+    "profile":null,
+    "review_num":0
+  },
+  "title":"트럭스터 어새신 팬츠 공43%",
+  "uuid":"gcWDK3d3EAQB7ecrZ33ejB",
+  "coin_rate":3400,
+  "humanized_created":"끌올 어제"
 }
 ```
 
@@ -395,8 +395,8 @@ None
 
 ```json
 {
-	"detail":"마지막 끌올 이후 36시간이 지난 후에만 다시 끌올을 할 수 있습니다.",
-	"code":"10004"
+  "detail":"마지막 끌올 이후 36시간이 지난 후에만 다시 끌올을 할 수 있습니다.",
+  "code":"10004"
 }
 ```
 
@@ -404,7 +404,7 @@ None
 
 ```json
 {
-	"detail":"같은 게시글의 최대 끌올 가능 횟수는 15회입니다.",
-	"code":"10005"
+  "detail":"같은 게시글의 최대 끌올 가능 횟수는 15회입니다.",
+  "code":"10005"
 }
 ```

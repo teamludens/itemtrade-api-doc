@@ -19,17 +19,17 @@ GET https://baseUrl/servers/?depth=2
 
 ```json
 {
-	"next":null,
-	"previous":null,
-	"results":[
-		{
-			"uuid":"UH7HRZwucrHKsLVbbwojso",
-			"name":"스카니아",
-			"coin":"100000000",
-			"currency":"억 메소"
-		},
+  "next":null,
+  "previous":null,
+  "results":[
+    {
+      "uuid":"UH7HRZwucrHKsLVbbwojso",
+      "name":"스카니아",
+      "coin":"100000000",
+      "currency":"억 메소"
+    },
     ...
-	]
+  ]
 }
 ```
 

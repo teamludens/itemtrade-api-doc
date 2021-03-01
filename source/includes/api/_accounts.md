@@ -12,38 +12,38 @@ POST https://baseUrl/registration/
 
 ```json
 {
-	"birth":"1984-10-23",
-	"carrier":"SK telecom",
-	"foreigner":false,
-	"gender":"male",
-	"imp_resp":{
-		"code":0,
-		"message":null,
-		"response":{
-			"birth":887829380,
-			"birthday":"1990-07-20",
-			"carrier":"SKT",
-			"certified":true,
-			"certified_at":1610889283,
-			"foreigner":false,
-			"gender":"female",
-			"imp_uid":"imp_289888049273",
-			"merchant_uid":"ORD202039131-0002931",
-			"name":"손흥민",
-			"origin":"https://api.alyke.app/webviews/imp_auth/?device=android",
-			"pg_provider":"danal",
-			"pg_tid":"202101172046340829382718",
-			"phone":"01012345678",
-			"unique_in_site":"MC0GCCqG....AfRO48=",
-			"unique_key":"iEfjM/HqDwP....5nVRikslpCUE0uQwHVtrdw=="
-		}
-	},
-	"mobile":"+821012345678",
-	"name":"손흥민",
-	"profile":"images/users/profiles/profile_rVvDZa9Mk28f58ch2AXuNt.jpeg",
-	"unique_in_site":"239dfj239dfjasdf",
-	"unique_key":"asdfi23jadsf92",
-	"username":"도도도새"
+  "birth":"1984-10-23",
+  "carrier":"SK telecom",
+  "foreigner":false,
+  "gender":"male",
+  "imp_resp":{
+    "code":0,
+    "message":null,
+    "response":{
+      "birth":887829380,
+      "birthday":"1990-07-20",
+      "carrier":"SKT",
+      "certified":true,
+      "certified_at":1610889283,
+      "foreigner":false,
+      "gender":"female",
+      "imp_uid":"imp_289888049273",
+      "merchant_uid":"ORD202039131-0002931",
+      "name":"손흥민",
+      "origin":"https://api.alyke.app/webviews/imp_auth/?device=android",
+      "pg_provider":"danal",
+      "pg_tid":"202101172046340829382718",
+      "phone":"01012345678",
+      "unique_in_site":"MC0GCCqG....AfRO48=",
+      "unique_key":"iEfjM/HqDwP....5nVRikslpCUE0uQwHVtrdw=="
+    }
+  },
+  "mobile":"+821012345678",
+  "name":"손흥민",
+  "profile":"images/users/profiles/profile_rVvDZa9Mk28f58ch2AXuNt.jpeg",
+  "unique_in_site":"239dfj239dfjasdf",
+  "unique_key":"asdfi23jadsf92",
+  "username":"도도도새"
 }
 ```
 
@@ -51,14 +51,14 @@ POST https://baseUrl/registration/
 
 ```json
 {
-	"access":"eyJ0eXAiOiJKV1QiLCJh...BwlpX8",
-	"refresh":"eyJ0eXAiOiJKV1Q...X9hOmZ4",
-	"user":{
-		"profile":"http://localhost:8000/media/images/users/profiles/profile_rVvDZa9Mk28f58ch2AXuNt.jpeg",
-		"status":"active",
-		"username":"도도도새",
-		"uuid":"PdLT2G8ae6sdWWuTgqigiS"
-	}
+  "access":"eyJ0eXAiOiJKV1QiLCJh...BwlpX8",
+  "refresh":"eyJ0eXAiOiJKV1Q...X9hOmZ4",
+  "user":{
+    "profile":"http://localhost:8000/media/images/users/profiles/profile_rVvDZa9Mk28f58ch2AXuNt.jpeg",
+    "status":"active",
+    "username":"도도도새",
+    "uuid":"PdLT2G8ae6sdWWuTgqigiS"
+  }
 }
 ```
 
